@@ -1,0 +1,31 @@
+.glyphicon-plus{
+    margin-left: 10px;
+    font-size: 10px;
+}
+.bottomFluid{
+    border-bottom: 2px solid #ccc;
+}
+.bingtu{
+   margin-top: 20px;
+}
+.timeDate{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    padding: 20px;
+    font-weight: 800;
+    box-shadow: 2px 2px 2px #ccc;
+    border: 1px solid #62a5f9;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+.timeDate>.form-group{
+    overflow: hidden;
+    margin-bottom: 0;
+}
+.timeDate>.form-group>label{
+    margin-top: 7px;
+}

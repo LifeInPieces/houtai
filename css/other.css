@@ -1,0 +1,53 @@
+.content li i{
+    background-image: url(../images/icons.png);
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    margin-bottom: 4px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+.icon_small{
+    margin-top: 20px;
+}
+.icon_small li{
+    float: left;
+}
+.icon_small li{
+    text-align: center;
+}
+.icon_small a{
+    display: inline-block;
+    color: #71481a;
+}
+.icon-smile-o {
+    background-position: -100px 0;
+}
+.icon_small{
+    margin-left: 50px;
+}
+.icon_key {
+    background-position: -150px 0;
+}
+.icon_building {
+    background-position: -100px -50px;
+}
+.icon_archive {
+    background-position: -200px -100px;
+}
+.icon_truck {
+    background-position: -200px -50px;
+}
+.icon-arrow-circle-o-down {
+    background-position: 0 -150px;
+}
+.icon_file {
+    background-position: -50px -150px;
+}
+.icon-arrow-circle-o-up {
+    background-position: -100px -150px;
+}
+.icon-file-o {
+    background-position: -150px -150px;
+}

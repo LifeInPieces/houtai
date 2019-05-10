@@ -1,0 +1,46 @@
+.orgin {
+    color: #999;
+}
+
+.glyphicon-arrow-left {
+    color: #999;
+    margin-right: 5px;
+}
+
+.glyphicon-file {
+    margin-left: 5px;
+}
+
+.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.row>[class*='col-'] {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+#map {
+    width: 100%;
+    height: 98%;
+    border: #ccc solid 1px;
+    font-size: 12px;
+    margin-top: 30px
+}
+.lat{
+    margin-left: 15px;
+    width: 45%;
+}
+.custom_left{
+    padding-left: 0;
+}
+.mapfill{
+    padding-bottom: 100px;
+    height: 92%;
+}

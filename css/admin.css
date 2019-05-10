@@ -1,0 +1,291 @@
+.nprogress-busy {
+  cursor: wait;
+}
+
+.form-control {
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: rgba(102, 175, 233, .8);
+  box-shadow: 0 0 0 2px rgba(102, 175, 233, .4);
+}
+
+body {
+  background-color: #f8f9fb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.content_left{
+  width: 20px;
+  height: 100%;
+  background-color: rgba(240,221,162,.5);
+}
+.aside{
+  /* position: fixed; */
+  position: absolute;
+  left: 0;
+  width: 180px;
+  /* height: 100%; */
+  background-color: rgba(240,221,162,.5);
+}
+
+.nav a {
+  display: block;
+  padding: 10px 20px;
+  color: #71481a;
+  font-weight: 700;
+  text-align: center
+}
+.nav a:hover {
+  color: #ecc444;
+  background-color: #f7d66c;
+}
+.nav a i:first-child {
+  width: 14px;
+  margin-right: 10px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.nav .glyphicon {
+  float: right;
+  transition: transform .2s;
+  transform: rotate(90deg);
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.nav .collapsed .glyphicon {
+  float: right;
+  transform: rotate(0);
+}
+
+.nav a + ul li:first-child {
+  margin-top: 8px;
+}
+
+.nav a + ul li:last-child {
+  margin-bottom: 8px;
+}
+
+.nav a + ul li a:hover{
+background-color: #fff;
+text-decoration: none;
+}
+
+.nav a + ul a {
+  padding-left: 30px;
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+  min-width: 844px;
+  min-height: 100vh;
+  padding: 70px 5px 20px 185px;
+}
+
+.main .navbar {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 180px;
+  padding: 0 15px 0 10px;
+  border: 0;
+  border-bottom: 1px solid #eee;
+  border-radius: 0;
+  background-color: #fff;
+}
+
+.main .navbar .navbar-btn {
+  padding: 10px 12px;
+  color: #444;
+  border: 0;
+}
+
+.main .navbar i {
+  margin-right: 4px;
+  font-size: .8em;
+}
+
+.main .container-fluid .page-title {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.main .container-fluid .page-title h1 {
+  display: inline-block;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.main .container-fluid .page-title .btn-primary {
+  margin-left: 5px;
+  vertical-align: bottom;
+}
+
+.main .container-fluid .page-title .input-group {
+  max-width: 230px;
+}
+
+.main .container-fluid .page-action {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.main .container-fluid .page-action .btn-batch,
+.main .container-fluid .page-action .form-inline {
+  display: inline-block;
+}
+
+.main .container-fluid .page-action .btn {
+  margin-right: 10px;
+}
+
+.main .container-fluid .pagination {
+  margin: 0;
+}
+
+.main .container-fluid form h2 {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.main .container-fluid table {
+  background-color: #fff;
+}
+
+.main .container-fluid th {
+  border-bottom: 1px;
+
+  font-weight: 400;
+}
+
+.main .container-fluid td {
+  vertical-align: middle;
+}
+
+.main .container-fluid td .slide {
+  width: auto;
+  max-height: 80px;
+}
+
+.main .container-fluid td i {
+  margin-right: 5px;
+}
+
+.main .container-fluid label {
+  color: #555;
+  font-weight: normal;
+}
+
+.main .container-fluid textarea {
+  resize: vertical;
+}
+
+.main .container-fluid .editor-toolbar:before {
+  margin-bottom: 5px;
+}
+
+.main .container-fluid .editor-toolbar:after {
+  margin-top: 5px;
+}
+
+.main .container-fluid .form-horizontal {
+  margin-top: 50px;
+}
+
+.main .container-fluid .form-image {
+  position: relative;
+  background-color: #fff;
+}
+
+.main .container-fluid .form-image input {
+  display: none;
+}
+
+.main .container-fluid .form-image img {
+  max-width: 150px;
+}
+
+.main .container-fluid .form-image i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: opacity .3s;
+  text-align: center;
+  opacity: 0;
+  background: #c0c0c0;
+  font-size: 2em;
+}
+
+.main .container-fluid .form-image i::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -14px;
+  margin-left: -14px;
+}
+
+.main .container-fluid .form-image:hover i {
+  opacity: .6;
+}
+
+.main .container-fluid .thumbnail {
+  width: 100%;
+}
+
+.login,
+.reginste{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url(../images/login_bg_0.jpg) no-repeat;
+  background-size: 100%;
+}
+
+.login .login-wrap,
+.reginste .reginste-wrap {
+  position: relative;
+  max-width: 521px;
+  margin: 80px auto;
+  padding: 60px 40px 40px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.login .login-wrap .avatar {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  overflow: hidden;
+  width: 140px;
+  height: 140px;
+  margin-left: -70px;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px #ccc;
+}
+.login_dl{
+  margin: 0 20px 20px;
+}
+.login_dl a{
+  color: #000;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 800;
+}
+.ginster{
+  float: right;
+}
+.active {
+  border-bottom: 2px solid #337ab7;
+}

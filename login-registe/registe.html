@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>河南豫储养殖供应链管理系统</title>
+  <link href="../images/logo.ico" rel="shortcut icon">
+	<link rel='stylesheet prefetch' href='../css/reset.css'>
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/bootstrap-fileinput/fileinput.min.css">
+</head>
+<body>
+    <div class="login">
+		<form id="msform">
+			<fieldset>
+				<h2 class="fs-title">创建你的账号</h2>
+        <h3 class="fs-subtitle">这是第一步</h3>
+        <input type="text" class="form-control" id="username" name="username" placeholder="请输入手机号(用户名)">
+        <input id="password" type="password" class="form-control" id="password" name="password" placeholder="密码">
+        <p class="tippassword">密码格式为6-16位字母和数字或特殊符号两者组合</p>
+        <input type="text" class="form-control" id="protectmail" name="protectmail" placeholder="密保邮箱">
+        <input type="text" class="form-control" id="companyname" name="companyname" placeholder="公司名称">
+        <input type="text" class="form-control" id="ipgp" name="ipgp" placeholder="公司简称">
+        <input type="text" class="form-control" id="contacts" name="contacts" placeholder="联系人">
+        <input type="text" class="form-control" id="address" name="address" placeholder="公司地址">
+        <p class="history">已有账号，<a href="login.html">去登陆</a></p>
+        <input type="button" name="next" class="next action-button" value="下一步" />
+			</fieldset>
+			<fieldset>
+				<h2 class="fs-title">公司信息</h2>
+				<h3 class="fs-subtitle">填写你的公司信息</h3>
+        <input type="text" class="form-control" id="industrycategory" name="industrycategory" placeholder="所属行业">
+        <input type="text" class="form-control" id="phone" name="phone" placeholder="公司电话">
+        <input type="text" class="form-control" id="email" name="email" placeholder="公司邮箱">
+        <input type="text" class="form-control" id="legal" name="legal" placeholder="法人代表">
+        <input type="text" class="form-control" id="fax" name="fax" placeholder="传真号">
+        <input type="text" class="form-control" id="postcode" name="postcode" placeholder="邮编">
+				<input type="button" name="previous" class="previous action-button" value="上一步" />
+				<input type="button" name="next" class="next action-button" value="下一步" />
+			</fieldset>
+			<fieldset>
+				<div class="form-group">
+          <label for="input-1" class="control-label" style="margin-bottom:10px">营业执照图片</label>
+          <input type="file" class="file" id="input-1" name="businesslicense" placeholder="营业执照图片">
+       </div>
+       <input type="button" name="previous" class="previous action-button" value="上一步" />
+       <input type="button" name="next" class="next action-button" value="下一步" />
+      </fieldset>
+      <fieldset>
+				<div class="form-group">
+          <label for="input-1" class="control-label" style="margin-bottom:10px">法人代表手持身份证正面照片</label>
+          <p class="errortitle"></p>
+          <input type="file" class="file" id="input" name="idphoto" placeholder="法人代表手持身份证正面照片">
+       </div>
+          <input type="button" name="previous" class="previous action-button" value="上一步" />
+          <input type="submit" name="" class="submit action-button registelicense" value="一键注册" />
+         <div class="loader-2" style="display:none">
+            <div class="loader-inner"></div>
+            <div class="loader-inner"></div>
+            <div class="loader-inner"></div>
+            <div class="loader-inner"></div>
+            <div class="loader-inner"></div>
+          </div>
+			</fieldset>
+    </form>
+  </div>
+	<script src="../assets/jquery.min.js"></script>
+  <script src="../js/jquery.easing.min.js"></script>
+  <script src="../assets/bootstrap/bootstrap.min.js"></script>
+  <script src="../assets/bootstrap-fileinput/fileinput.min.js"></script>
+  <script src="../assets/bootstrap-fileinput/fileinput_locale_zh.js"></script>
+  <script src="../js/other/tiaozhuan.js"></script>
+  <script src="../js/other/registe.js"></script>
+  <script>
+    //  初始化上传图片汉字
+    initFileInput();
+    function initFileInput() {
+        $(".file").fileinput({//#file-5是input框的id
+           language: 'zh'//设置语言为中文
+         })
+      }
+    </script>
+</body>
+</html>

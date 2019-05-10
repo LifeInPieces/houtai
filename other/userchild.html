@@ -1,0 +1,159 @@
+<script>
+    token=localStorage.getItem("token")
+    if(token==null || token==undefined){
+    location.href="login-registe/login.html";
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>河南豫储养殖供应链管理系统</title>
+    <link href="../images/logo.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/sweet-alert/sweet-alert.min.css">
+    <link rel="stylesheet" href="../assets/toastr/toastr.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+    <style>
+    .glyphicon-plus{
+        margin-left: 10px;
+        font-size: 10px;
+    }
+    .addshouquan{
+        position: absolute;
+        width: 600px;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff;
+        padding: 30px;
+        z-index: 3;
+    }
+    </style>
+</head>
+<body>
+<div class="inner">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <div class="news">
+                            <img src="../images/default.png">
+                            <span>您好!</span>
+                            <span class="username"></span>
+                            <span class="dropdown">
+                                <span class="caret" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></span>
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                    <li>
+                                        <a href="#" class="rever_password">
+                                            <span class="glyphicon glyphicon-cog draw"></span>修改密码</a>
+                                    </li>
+                                    <li>
+                                            <a href="#" id="logout">
+                                            <span class="glyphicon glyphicon-log-out draw"></span>退出</a>
+                                    </li>
+                                </ul>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default content_panel">
+        <div class="panel-body header_title">
+            <a href="user.html"> <i class="glyphicon glyphicon-share-alt"></i></a>
+            用户添加模块（授权）
+            <button type="button" class="btn btn-info aa">新增<i class="glyphicon glyphicon-plus"></i></button>
+        </div>
+        <div class="panel-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                            <table class="table table-bordered tableAll" id="userchildTable">
+                            </table>
+                            <ul class="pagination pagination-sm pull-right">
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mengban_over"></div>
+    <div class="addshouquan" style="display:none" id="modulesTable">
+    </div>
+    <div class="form_show outline_time" style="display:none">
+        <form>
+            <p class="bianji">编辑</p>
+            <div class="form-group">
+                <label for="exampleInputEmail1">原始密码</label>
+                <input type="password" class="form-control" id="beforepwd" placeholder="原始密码">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">新密码<span class="toppwd">(密码格式为6-16位字母和数字或特殊符号两者组合)</span></label>
+                <input type="password" class="form-control" id="newpwd" placeholder="新密码">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">确认新密码</label>
+                <input type="password" class="form-control" id="lastpwd" placeholder="确认新密码">
+            </div>
+            <div class="right_button pull-right">
+                <button type="submit" class="btn btn-default open_down">关闭
+                    <i class="glyphicon glyphicon-remove draw_show"></i>
+                </button>
+                <a type="button" class="btn btn-default preserve preservepwd">保存
+                    <i class="glyphicon glyphicon-file draw_show"></i>
+                </a>
+                
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="../assets/jquery.min.js"></script>
+<script src="../assets/bootstrap/bootstrap.min.js"></script>
+<script src="../assets/template-native.js"></script>
+<script src="../assets/sweet-alert/sweet-alert.min.js"></script>
+<script src="../assets/toastr/toastr.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/other/userchild.js"></script>
+<script type="text/template" id="userchildTel">
+    <tr class="activeTr tr_header">
+        <td>模块名称</td>
+        <td>操作</td>
+    </tr>
+    <% for(var i=0;i< rows.length; i++){ %>
+        <tr class="tr_header">
+            <td><%=rows[i].name%></td>
+            <td> <a href="#" class="glyphicon glyphicon-trash userchild_del" data-id="<%= rows[i].id %>" data-toggle="tooltip" data-placement="top" title="删除" style="margin-left:10px;"></a></td>
+        </tr>
+    <% } %>
+</script>
+<!-- 初始化头部 -->
+<script type="text/template" id="usernameTel">
+    <span>
+        <<%= res%>>
+    </span>
+</script>
+<script type="text/template" id="modulesTel">
+    <% for(var i=0;i< rows.length; i++){ %>
+    <div class="input input--checkbox input--large">
+        <label>
+        <input type="checkbox" data-id="<%=rows[i].id%>">
+        <span class="input__box"></span>
+        <span><%=rows[i].name%></span>
+        </label>
+    </div>
+    <% } %>
+    <a type="button" class="btn btn-default preserve preservepwd" style="margin-top:100px;float:right;">保存
+        <i class="glyphicon glyphicon-file draw_show"></i>
+    </a>
+</script>
+</html>

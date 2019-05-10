@@ -1,0 +1,303 @@
+<script>
+    token=localStorage.getItem("token")
+    if(token==null || token==undefined){
+    location.href="login-registe/login.html";
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>河南豫储养殖供应链管理系统</title>
+    <link href="../images/logo.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/sweet-alert/sweet-alert.min.css">
+    <link rel="stylesheet" href="../assets//toastr/toastr.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+    .glyphicon-plus{
+        margin-left: 10px;
+        font-size: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="inner">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading clearfix">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-3">
+                            <div class="news">
+                                <img src="../images/default.png">
+                                <span>您好!</span>
+                                <span class="username"></span>
+                                <span class="dropdown">
+                                    <span class="caret" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></span>
+                                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                        <li>
+                                            <a href="#" class="rever_password">
+                                                <span class="glyphicon glyphicon-cog draw"></span>修改密码</a>
+                                        </li>
+                                        <li>
+                                             <a href="#" id="logout">
+                                                <span class="glyphicon glyphicon-log-out draw"></span>退出</a>
+                                        </li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default content_panel">
+           <div class="panel-body header_title">
+                <a href="#" class="firstbackhistory" data-id="8"> <i class="glyphicon glyphicon-share-alt"></i></a>
+               日常情况
+               <button type="button" class="btn btn-info header_right">新增<i class="glyphicon glyphicon-plus"></i></button>
+           </div>
+           <div class="panel-footer">
+               <div class="container-fluid">
+                   <div class="row">
+                        <div class="col-md-12">
+                                <div class="pull-right header_keyword" style="padding:10px">
+                                    <label for="everyNumber">鸡舍号:</label>
+                                    <input type="text" id="everyNumber" name="everyNumber">
+                                    <input type="button" class="btn btn-info btn_found" value="查询">
+                                </div>
+                                <table class="table table-bordered tableAll" id="everyTable">
+                                </table>
+                                <ul class="pagination pagination-sm pull-right">
+                                </ul>
+                            </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div class="mengban_over"></div>
+        <div class="form_show add_form" style="display:none">
+            <form id="newUser" name="newUser">
+                <p class="bianji form_add" style="display:none">新增</p>
+                <p class="bianji form_eimt" style="display:none">编辑</p>
+                <div class="form-group col-md-6">
+                    <label for="chickenhousename">鸡舍号<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                   <select class="form-control" id="housename" name="chickenhousename">
+                   </select>
+                </div> 
+                <div class="form-group col-md-6">
+                    <label for="date">记录日期<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="date" class="form-control" id="date" name="date" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="temperature">鸡舍温度<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="temperature" name="temperature" placeholder="鸡舍温度">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="humidity">鸡舍湿度<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="humidity" name="humidity" placeholder="鸡舍湿度">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="brightness">鸡舍亮度<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="brightness" name="brightness" placeholder="鸡舍亮度">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="hygiene">卫生情况<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <select class="form-control" id="hygiene" name="hygiene">
+                        <option value="良好">良好</option>
+                        <option value="一般">一般</option>
+                        <option value="差">差</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="water">供水情况<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <select class="form-control" id="water" name="water">
+                        <option value="良好">良好</option>
+                        <option value="一般">一般</option>
+                        <option value="差">差</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ammonia">氨气浓度<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="ammonia" name="ammonia" placeholder="氨气浓度">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="carbonyl">一氧化碳浓度<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="carbonyl" name="carbonyl" placeholder="一氧化碳浓度">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="hydrogensulfide">硫化氢气体浓度<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="hydrogensulfide" name="hydrogensulfide" placeholder="一氧化碳浓度">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="oxygen">氧气浓度<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="oxygen" name="oxygen" placeholder="氧气浓度">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="carbondioxide">二氧化碳浓度<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="carbondioxide" name="carbondioxide" placeholder="二氧化碳浓度">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lighttime">光照时常<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="lighttime" name="lighttime" placeholder="光照时常">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="poweruse">用电量<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="poweruse" name="poweruse" placeholder="用电量">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="wateruse">用水量<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="wateruse" name="wateruse" placeholder="用水量">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="fan">风机运转情况<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <select class="form-control" id="fan" name="fan">
+                        <option value="良好">良好</option>
+                        <option value="一般">一般</option>
+                        <option value="差">差</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="spray">喷淋情况<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <select class="form-control" id="spray" name="spray">
+                        <option value="良好">良好</option>
+                        <option value="一般">一般</option>
+                        <option value="差">差</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="remarks">其他</label>
+                    <input type="text" class="form-control" id="remarks" name="remarks" placeholder="其他">
+                </div>
+                <div class="right_button pull-right">
+                    <a href="#" class="btn btn-default open_down">关闭<i class="glyphicon glyphicon-remove draw_show"></i></a>
+                    <a href="#" class="btn btn-default preserve preserve_add" style="display:none">保存<i class="glyphicon glyphicon-file draw_show"></i></a>
+                    <a href="#" class="btn btn-default preserve preserve_emit" style="display:none">保存<i class="glyphicon glyphicon-file draw_show"></i></a>
+                </div>
+            </form>
+        </div>
+        <div class="form_show outline_time" style="display:none">
+            <form>
+                <p class="bianji">编辑</p>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">原始密码</label>
+                    <input type="password" class="form-control" id="beforepwd" placeholder="原始密码">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">新密码<span class="toppwd">(密码格式为6-16位字母和数字或特殊符号两者组合)</span></label>
+                    <input type="password" class="form-control" id="newpwd" placeholder="新密码">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">确认新密码</label>
+                    <input type="password" class="form-control" id="lastpwd" placeholder="确认新密码">
+                </div>
+                <div class="right_button pull-right">
+                    <button type="submit" class="btn btn-default open_down">关闭
+                        <i class="glyphicon glyphicon-remove draw_show"></i>
+                    </button>
+                    <a type="button" class="btn btn-default preserve preservepwd">保存
+                        <i class="glyphicon glyphicon-file draw_show"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="../assets/jquery.min.js"></script>
+<script src="../assets/bootstrap/bootstrap.min.js"></script>
+<script src="../assets/template-native.js"></script>
+<script src="../assets/sweet-alert/sweet-alert.min.js"></script>
+<script src="../assets/toastr/toastr.min.js"></script>
+<script src="../assets/moment/moment.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/raising/every.js"></script>
+<script type="text/template" id="everyTel">
+    <tr class="activeTr tr_header">
+        <td>鸡舍号</td>
+        <td>记录日期</td>
+        <td>鸡舍温度</td>
+        <td>温度单位</td>
+        <td>鸡舍湿度</td>
+        <td>湿度单位</td>
+        <td>鸡舍亮度</td>
+        <td>亮度单位</td>
+        <td>卫生情况</td>
+        <td>供水情况</td>
+        <td>氨气浓度</td>
+        <td>氨气单位</td>
+        <td>一氧化碳浓度</td>
+        <td>一氧化碳浓度单位</td>
+        <td>硫化氢气体浓度</td>
+        <td>硫化氢气体浓度单位</td>
+        <td>氧气浓度</td>
+        <td>氧气浓度单位</td>
+        <td>二氧化碳浓度</td>
+        <td>二氧化碳浓度单位</td>
+        <td>光照时常</td>
+        <td>光照时长单位</td>
+        <td>用电量</td>
+        <td>用电量单位</td>
+        <td>用水量</td>
+        <td>用水量单位</td>
+        <td>风机运转情况</td>
+        <td>喷淋情况</td>
+        <td>其他</td>
+        <td>操作</td>
+    </tr>
+    <% for(var i=0; i< rows.length; i++){ %>
+    <tr class="tr_header">
+        <td><%=rows[i].chickenhousename%></td>
+        <td><%=rows[i].date%></td>
+        <td><%=rows[i].temperature%></td>
+        <td><%=rows[i].temperatureunit%></td>
+        <td><%=rows[i].humidity%></td>
+        <td><%=rows[i].humidityunit%></td>
+        <td><%=rows[i].brightness%></td>
+        <td><%=rows[i].brightnessunit%></td>
+        <td><%=rows[i].hygiene%></td>
+        <td><%=rows[i].water%></td>
+        <td><%=rows[i].ammonia%></td>
+        <td><%=rows[i].ammoniaunit%></td>
+        <td><%=rows[i].carbonyl%></td>
+        <td><%=rows[i].carbonylunit%></td>
+        <td><%=rows[i].hydrogensulfide%></td>
+        <td><%=rows[i].hydrogensulfideunit%></td>
+        <td><%=rows[i].oxygen%></td>
+        <td><%=rows[i].oxygenunit%></td>
+        <td><%=rows[i].carbondioxide%></td>
+        <td><%=rows[i].carbondioxideunit%></td>
+        <td><%=rows[i].lighttime%></td>
+        <td><%=rows[i].lighttimeunit%></td>
+        <td><%=rows[i].poweruse%></td>
+        <td><%=rows[i].poweruseunit%></td>
+        <td><%=rows[i].wateruse%></td>
+        <td><%=rows[i].wateruseunit%></td>
+        <td><%=rows[i].fan%></td>
+        <td><%=rows[i].spray%></td>
+        <td><%=rows[i].remarks%></td>
+        <td class="cion_splice">
+            <a href="javascript:;" class="glyphicon glyphicon-pencil emit" data-id="<%=rows[i].id%>" data-toggle="tooltip" data-placement="top" title="编辑"></a>
+            <a href="javascript:;" class="glyphicon glyphicon-trash every_del" data-id="<%=rows[i].id%>" data-toggle="tooltip" data-placement="top" title="删除" style="margin-left:10px;"></a>
+        </td>
+    </tr>
+    <% } %>
+    <tr class="data_num">
+        <td colspan="30">没有查询到相关信息</td>
+    </tr>
+</script>
+<script type="text/template" id="usernameTel">
+    <span>
+      <<%= res%>>
+    </span>
+</script>
+<script type="text/template" id="optionTel">
+    <% for(var i=0; i< rows.length; i++){ %>
+     <option value="<%=rows[i].housename%>"><%=rows[i].housename%></option>
+     <% } %>
+</script>
+</html>

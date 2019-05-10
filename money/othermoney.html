@@ -1,0 +1,206 @@
+<script>
+    token=localStorage.getItem("token")
+    if(token==null || token==undefined){
+    location.href="login-registe/login.html";
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>河南豫储养殖供应链管理系统</title>
+    <link href="../images/logo.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/sweet-alert/sweet-alert.min.css">
+    <link rel="stylesheet" href="../assets//toastr/toastr.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+    .glyphicon-plus{
+        margin-left: 10px;
+        font-size: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="inner">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading clearfix">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-3">
+                            <div class="news">
+                                <img src="../images/default.png">
+                                <span>您好!</span>
+                                <span class="username"></span>
+                                <span class="dropdown">
+                                    <span class="caret" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></span>
+                                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                        <li>
+                                            <a href="#" class="rever_password">
+                                                <span class="glyphicon glyphicon-cog draw"></span>修改密码</a>
+                                        </li>
+                                        <li>
+                                             <a href="#" id="logout">
+                                                <span class="glyphicon glyphicon-log-out draw"></span>退出</a>
+                                        </li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default content_panel">
+           <div class="panel-body header_title">
+                <a href="#" class="firstbackhistory" data-id="9"> <i class="glyphicon glyphicon-share-alt"></i></a>
+                其他收支
+                <button type="button" class="btn btn-info header_right">收支登记<i class="glyphicon glyphicon-plus"></i></button>
+           </div>
+           <div class="panel-footer">
+               <div class="container-fluid">
+                   <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-right header_keyword" style="padding:10px 0">
+                                <label for="afterDate">至:</label>
+                                <input type="date" id="afterDate" name="afterDate">
+                                <input type="button" class="btn btn-info buttonDate" value="查询">
+                            </div>
+                            <div class="pull-right header_keyword" style="padding:10px 0">
+                                <label for="beforeDate">登记日期:</label>
+                                <input type="date" id="beforeDate" name="beforeDate">
+                            </div>
+                            <table class="table table-bordered tableAll" id="othermoneyTable"> 
+                            </table>
+                            <ul class="pagination pagination-sm pull-right">
+                            </ul>
+                        </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div class="mengban_over"></div>
+       <div class="form_show add_form" style="display:none">
+            <form id="newUser" name="newUser">
+                <p class="bianji form_add" style="display:none">新增</p>
+                <p class="bianji form_eimt" style="display:none">编辑</p>
+                <div class="form-group">
+                    <label for="date">登记日期<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="date" class="form-control" id="date" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="name">项目名称<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="项目名称">
+                </div>
+                <div class="form-group">
+                    <label for="type">类别<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <select class="form-control" id="type" name="type">
+                        <option value="收入">收入</option>
+                        <option value="支出">支出</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="money">金额<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="money" name="money">
+                </div>
+                <div class="form-group">
+                    <label for="instructions">说明<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="instructions" name="instructions" placeholder="说明">
+                </div>
+                <div class="form-group">
+                    <label for="people">经办人<i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                    <input type="text" class="form-control" id="people" name="people" placeholder="经办人">
+                </div>
+                <div class="form-group">
+                    <label for="remarks">其他</label>
+                    <input type="text" class="form-control" id="remarks" name="remarks" placeholder="其他">
+                </div>
+                <div class="right_button pull-right">
+                    <a href="#" class="btn btn-default open_down">关闭
+                        <i class="glyphicon glyphicon-remove draw_show"></i>
+                    </a>
+                    <a href="#" class="btn btn-default preserve preserve_add" style="display:none">保存
+                        <i class="glyphicon glyphicon-file draw_show"></i>
+                    </a>
+                    <a href="#" class="btn btn-default preserve preserve_emit" style="display:none">保存
+                        <i class="glyphicon glyphicon-file draw_show"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div class="form_show outline_time" style="display:none">
+            <form>
+                <p class="bianji">编辑</p>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">原始密码</label>
+                    <input type="password" class="form-control" id="beforepwd" placeholder="原始密码">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">新密码<span class="toppwd">(密码格式为6-16位字母和数字或特殊符号两者组合)</span></label>
+                    <input type="password" class="form-control" id="newpwd" placeholder="新密码">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">确认新密码</label>
+                    <input type="password" class="form-control" id="lastpwd" placeholder="确认新密码">
+                </div>
+                <div class="right_button pull-right">
+                    <button type="submit" class="btn btn-default open_down">关闭
+                        <i class="glyphicon glyphicon-remove draw_show"></i>
+                    </button>
+                    <a type="button" class="btn btn-default preserve preservepwd">保存
+                        <i class="glyphicon glyphicon-file draw_show"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="../assets/jquery.min.js"></script>
+<script src="../assets/bootstrap/bootstrap.min.js"></script>
+<script src="../assets/template-native.js"></script>
+<script src="../assets/toastr/toastr.min.js"></script>
+<script src="../assets/sweet-alert/sweet-alert.min.js"></script>
+<script src="../assets/moment/moment.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/money/othermoney.js"></script>
+<script type="text/template" id="othermoneyTel">
+    <tr class="activeTr tr_header">
+        <td>登记日期</td>
+        <td>项目名称</td>
+        <td>收支类型</td>
+        <td>金额</td>
+        <td>说明</td>
+        <td>经办人</td>
+        <td>其他</td>
+        <td>操作</td>
+    </tr>
+    <% for(var i=0; i< rows.length; i++){ %>
+    <tr class="tr_header">
+        <td><%=rows[i].date%></td>
+        <td><%=rows[i].name%></td>
+        <td><%=rows[i].type%></td>
+        <td><%=rows[i].money%></td>
+        <td><%=rows[i].instructions%></td>
+        <td><%=rows[i].people%></td>
+        <td><%=rows[i].remarks%></td>
+        <td class="cion_splice">
+            <a href="#" class="glyphicon glyphicon-pencil emit" data-id="<%=rows[i].id%>" data-toggle="tooltip" data-placement="top" title="编辑" style="margin: 0 10px;"></a>
+            <a href="#" class="glyphicon glyphicon-trash othermoney_del" data-id="<%=rows[i].id%>" data-toggle="tooltip" data-placement="top" title="删除"></a>
+        </td>
+    </tr>
+    <% } %>
+    <tr class="data_num">
+        <td colspan="8">没有查询到相关信息</td>
+    </tr>
+</script>
+<script type="text/template" id="usernameTel">
+    <span>
+      <<%= res%>>
+    </span>
+</script>
+</html>

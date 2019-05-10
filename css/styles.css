@@ -1,0 +1,267 @@
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html,
+.login{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url(../images/login_bg_0.jpg) no-repeat;
+  background-size: 100%;
+}
+
+body {
+	font-family: "Microsoft YaHei",montserrat, arial, verdana;
+}
+/*form styles*/
+#msform {
+	width: 414px;
+	margin: 100px auto;
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	
+	box-sizing: border-box;
+	width: 100%;
+	/*stacking fieldsets above each other*/
+	position: absolute;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform .file-caption-name{
+	padding: 0;
+	border: none;
+	margin: 0;
+}
+#msform input{
+	padding: 15px;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: "Microsoft YaHei",montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
+/*buttons*/
+.yjzc{
+	position: relative;
+	/* width: 120px; */
+	/* height: 38px; */
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#msform .action-button{
+	width: 100px;
+	background: #27AE60;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform .sucessactive{
+	width: 120px;
+	text-align: right;
+	padding: 10px 17px 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+/*headings*/
+.fs-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #27AE60;
+	color: white;
+}
+
+/* 上传照片框的背景 */
+.file-drop-zone-title{
+    background: url(../images/photo.png) no-repeat #FDFDFD;
+    background-position: 100%;
+}
+.history{
+	text-align: right;
+	color: #b3b3b3;
+	font-size: 12px;
+}
+
+.history a,
+.history a:hover,
+.history a:focus{
+	color: #4CAF50;
+	text-decoration: none;
+}
+
+/* Loading-2*/
+.loader-2{
+	position: relative;
+	/* width: 30px; */
+	height: 30px;
+	bottom: 38px;
+	left: 15px;
+}
+.loader-2 .loader-inner{
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: #a10702;
+	position: absolute;
+	left: 50%;
+	z-index: 10;
+	transform-origin: 50% 11px;
+	transform: rotateZ(30deg);
+	animation: loading-4 1.73s cubic-bezier(.6,0,.4,1) infinite;
+}
+.loader-2 .loader-inner:nth-child(2){
+	background: #faa613;
+	transform: rotateZ(15deg);
+	animation-name: loading-5;
+	animation-delay: 172.5ms;
+}
+.loader-2 .loader-inner:nth-child(3){
+	background: #688e26;
+	transform: rotateZ(0deg);
+	animation-name: loading-6;
+	animation-delay: 345ms;
+}
+.loader-2 .loader-inner:nth-child(4){
+	background: #f44708;
+	transform: rotateZ(-15deg);
+	animation-name: loading-7;
+	animation-delay: 517.5ms;
+}
+.loader-2 .loader-inner:nth-child(5){
+	background: #2e294e;
+	transform: rotateZ(-30deg);
+	animation-name: loading-8;
+	animation-delay: 690ms;
+}
+@keyframes loading-3{
+	0%{
+		transform: rotateX(30deg) rotateZ(0deg);
+	}
+	100%{
+		transform: rotateX(30deg) rotateZ(-360deg);
+	}
+}
+@keyframes loading-4{
+	0%{
+		transform: rotateZ(30deg) rotateX(10deg);
+	}
+	95%,100%{
+		transform: rotateZ(390deg) rotateX(10deg);
+	}
+}
+@keyframes loading-5{
+	0%{
+		transform: rotateZ(15deg) rotateX(10deg);
+	}
+	95%,100%{
+		transform: rotateZ(375deg) rotateX(10deg);
+	}
+}
+@keyframes loading-6{
+	0%{
+		transform: rotateZ(0deg) rotateX(10deg);
+	}
+	95%,100%{
+		transform: rotateZ(360deg) rotateX(10deg);
+	}
+}
+@keyframes loading-7{
+	0%{
+		transform: rotateZ(-15deg) rotateX(10deg);
+	}
+	95%,100%{
+		transform: rotateZ(345deg) rotateX(10deg);
+	}
+}
+@keyframes loading-8{
+	0%{
+		transform: rotateZ(-30deg) rotateX(10deg);
+	}
+	95%,100%{
+		transform: rotateZ(330deg) rotateX(10deg);
+	}
+}
+
+.tippassword {
+    font-size: 12px;
+    color: #666;
+	text-align: left;
+	margin-top: -6px;
+}
+.errortitle{
+	text-align: left;
+	margin-bottom: 10px;
+	color: #f00;
+  }

@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style: none;
+}
+a,
+a:hover,
+a:focus{
+    text-decoration: none;
+}
+/* 此处去掉默认的小× */
+input[type=search]{-webkit-appearance: none; -moz-appearance: none; -o-appearance: none; appearance: none;}
+::-ms-clear, ::-ms-reveal{display: none !important;}

@@ -1,0 +1,43 @@
+<script>
+    token=localStorage.getItem("token")
+    if(token==null || token==undefined){
+    location.href="login-registe/login.html";
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>河南豫储养殖供应链管理系统</title>
+    <link href="../images/logo.ico" rel="shortcut icon">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=DarF2LCCGzn6T16zgy8ZPkvYYE5CT6fu"></script>
+    <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css"> 
+    <link rel="stylesheet" href="../css/custom_add.css">
+</head>
+<body>
+    <div class="inner">
+         <div class="panel panel-default content_panel">
+            <div class="panel-body header_title">
+                <a href="../base/henhouse.html"> <i class="glyphicon glyphicon-share-alt"></i></a>
+                企业客户
+            </div>
+            <div class="panel-footer mapfill">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-10">
+                             <!-- 百度地图容器 -->
+                            <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../assets/jquery.min.js"></script>
+<script src="../assets/bootstrap/bootstrap.min.js"></script>
+<script src="../js/map.js"></script>
+</html>

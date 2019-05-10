@@ -1,0 +1,56 @@
+.contant_main{
+    margin-left: 220px;
+    margin-top: 30px;
+    width: 100%;
+}
+.contant_main> ul{
+    width: 600px;
+}
+.contant_main> ul li{
+    width: 100px;
+    float: left;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.contant_main> ul li > img {
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    margin-bottom: 4px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+.contant_main ul{
+    display: none;
+}
+.contant_main .item{
+    display: inline-block;
+}
+.contant_main a{
+    display: inline-block;
+    color: #000;
+}
+/* 导航栏选中 */
+.nav .active>a{
+  color: #ecc444;
+  background-color: #fff;
+}
+.readdata{
+    margin-top: 10px;
+}
+.readdata span{
+    vertical-align: middle;
+}
+.ciclenum{
+    display: inline-block;
+    background-color: #f00;
+    height: 18px;
+    border-radius: 18px;
+    text-align: center;
+    line-height: 18px;
+    color: #fff;
+    margin-bottom: 2px;
+    padding: 0 5px;
+    cursor: pointer;
+}
